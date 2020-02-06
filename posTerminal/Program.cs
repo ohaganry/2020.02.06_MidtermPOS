@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace posTerminal
 {
@@ -6,7 +7,9 @@ namespace posTerminal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<MenuItem> menu = new List<MenuItem>();
+            menu = MenuItem.PopulateMenu();
+            MenuItem.WriteMenu(menu);
         }
     }
 }

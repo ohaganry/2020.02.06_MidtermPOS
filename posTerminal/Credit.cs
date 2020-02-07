@@ -28,13 +28,13 @@ namespace posTerminal
         //validate expiration date is in correct format
         public static string ValidateExpirationDate(string expirationDate)
         {
-            if (Regex.IsMatch(expirationDate, @"^\d{2}/{2}$") && DateTime.Parse(expirationDate) > DateTime.Now)
+            if (Regex.IsMatch(expirationDate, @"^\d{2}/\d{2}$")) /*&& DateTime.Parse(expirationDate) > DateTime.Now)*/
             {
                 return $"Thank you. {expirationDate} is valid.\n";
             }
             else
             {
-                return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yy)"));
+                return ValidateExpirationDate(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yy)"));
             }
         }
 
@@ -60,7 +60,7 @@ namespace posTerminal
             }
             else
             {
-                return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid CVV number."));
+                return ValidateCVV(Methods.GetUserInput("Invalid entry. Please enter a valid CVV number."));
             }
         }
 

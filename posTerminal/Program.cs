@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace posTerminal
 {
@@ -49,13 +50,13 @@ namespace posTerminal
                     }
 
                     receipt.CalcSubTotal(cart);
-                    Console.WriteLine($"Subtotal: {receipt.Subtotal}");
+                    Console.WriteLine($"Subtotal: {receipt.Subtotal:C2}");
 
                     moreItems = Methods.ValidateInput("Would you like to add more items? (y/n)");
                 }
 
                 receipt.CalcTotal();
-                Console.WriteLine($"Grand Total: {receipt.Grandtotal}");
+                Console.WriteLine($"Grand Total: {receipt.Grandtotal:C2}");
 
                 Console.WriteLine("How would you like to pay?");
                 int pay = Methods.CheckRange("1. Cash \n2. Credit \n3. Check", 1, 3);
@@ -64,9 +65,38 @@ namespace posTerminal
                 switch (pay)
                 {
                     case 1:
-                        cash.AmountTendered = double.Parse(Methods.GetUserInput("Cash Tendered:"));
-                        cash.CalcChange(cash.AmountTendered, receipt.Grandtotal);
-                        payType = "Cash";
+
+                        bool validCash = true;
+                        while (validCash)
+                        {
+
+                            string s = (Methods.GetUserInput("Cash Tendered:"));
+
+                            if (Regex.IsMatch(s, @"^((\d{3})|\d+)\.\d{2}$") || Regex.IsMatch(s, @"^(\d{1,3})$"))
+                            {
+                                
+                                cash.AmountTendered = double.Parse(s);
+                                validCash = false;
+                            }
+                            else
+                            {
+
+                                Console.WriteLine("Invalid entry. Please enter a valid cash amount please.");
+
+                            }
+                            if (cash.AmountTendered >= receipt.Grandtotal)
+                            {
+                               
+                            }
+                            else
+                            {
+                                Console.WriteLine("more money please");
+                                validCash = true;
+                            }
+                            cash.CalcChange(cash.AmountTendered, receipt.Grandtotal);
+                            payType = "Cash";
+                        }
+                        Console.WriteLine("Thank you!");
                         break;
 
                     case 2:
@@ -87,14 +117,14 @@ namespace posTerminal
                 {
                     Console.WriteLine($"{m.Name} \t {m.Price}");
                 }
-                Console.WriteLine($"Subtotal: {receipt.Subtotal}");
-                Console.WriteLine($"Tax: {receipt.Subtotal * receipt.Salestax}");
-                Console.WriteLine($"Total: {receipt.Grandtotal}");
+                Console.WriteLine($"Subtotal: {receipt.Subtotal:C2}");
+                Console.WriteLine($"Tax: {receipt.Subtotal * receipt.Salestax:C2}");
+                Console.WriteLine($"Total: {receipt.Grandtotal:C2}");
                 Console.WriteLine($"Payment type: {payType}");
                 if (payType == "Cash")
                 {
-                    Console.WriteLine($"Amount Tendered: {cash.AmountTendered}");
-                    Console.WriteLine($"Change Due: {cash.Change}");
+                    Console.WriteLine($"Amount Tendered: {cash.AmountTendered:C2}");
+                    Console.WriteLine($"Change Due: {cash.Change:C2}");
                 }
                 else
                 {

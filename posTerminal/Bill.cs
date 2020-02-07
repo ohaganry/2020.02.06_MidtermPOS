@@ -24,17 +24,16 @@ namespace posTerminal
             Grandtotal = grandTotal;
         }
 
-        public static double CalcSubTotal(List<MenuItem> userCart)
+        public double CalcSubTotal(List<MenuItem> userCart)
         {
             foreach (var c in userCart)
             {
-                var amount = c.Price * c.Quantity;
-                Subtotal += amount;
+                Subtotal += c.Price;
             }
             return Subtotal;
         }
 
-        public static double CalcTotal()
+        public double CalcTotal()
         {
             return Subtotal * (1 + Salestax);
         }

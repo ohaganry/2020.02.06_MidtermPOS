@@ -7,9 +7,11 @@ namespace posTerminal
     {
         static void Main(string[] args)
         {
-            List<MenuItem> menu = new List<MenuItem>();
-            menu = MenuItem.PopulateMenu();
+            List<MenuItem> menu = MenuItem.PopulateMenu(); 
             MenuItem.WriteMenu(menu);
+
+            int item = Methods.CheckRange("Which menu item would you like?", 1, menu.Count);
+            Console.WriteLine(menu[item - 1].Name);
         }
     }
 }

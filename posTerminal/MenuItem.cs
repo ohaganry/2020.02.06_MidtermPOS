@@ -26,7 +26,7 @@ namespace posTerminal
         {
             List<MenuItem> menu = new List<MenuItem>();
 
-            StreamReader reader = new StreamReader("Menu.txt");//("../../../Menu.txt");
+            StreamReader reader = new StreamReader/*("Menu.txt");/*/("../../../Menu.txt");
             string line = reader.ReadLine();
 
             while(line != null)
@@ -43,10 +43,27 @@ namespace posTerminal
         public static void WriteMenu(List<MenuItem> menu)
         {
             int i = 1;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\tMEALS");
+            Console.ResetColor();
             foreach(MenuItem item in menu)
             {
-                Console.WriteLine($"{i}. {item.Name} - ${item.Price}");
-                i++;
+                if(item.Category == "Meal")
+                {
+                    Console.WriteLine($"{i}. {item.Name}   ${item.Price}");
+                    i++;
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n\tSIDES");
+            Console.ResetColor();
+            foreach(MenuItem item in menu)
+            {
+                if(item.Category == "Side")
+                {
+                    Console.WriteLine($"{i}. {item.Name}   ${item.Price}");
+                    i++;
+                }
             }
         }
     }

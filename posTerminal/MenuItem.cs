@@ -25,7 +25,7 @@ namespace posTerminal
         {
             List<MenuItem> menu = new List<MenuItem>();
 
-            StreamReader reader = new StreamReader("Menu.txt");
+            StreamReader reader = new StreamReader("../../../Menu.txt");
             string line = reader.ReadLine();
 
             while(line != null)

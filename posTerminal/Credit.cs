@@ -28,13 +28,13 @@ namespace posTerminal
         //validate expiration date is in correct format
         public static string ValidateExpirationDate(string expirationDate)
         {
-            if (Regex.IsMatch(expirationDate, @"^\d{15,16}$"))
+            if (Regex.IsMatch(expirationDate, @"^\d{2}/{2}$") && DateTime.Parse(expirationDate) > DateTime.Now)
             {
                 return $"Thank you. {expirationDate} is valid.\n";
             }
             else
             {
-                return ValidateCardNumber(GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yy)"));
+                return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yy)"));
             }
         }
 
@@ -47,7 +47,7 @@ namespace posTerminal
             }
             else
             {
-                return ValidateCardNumber(GetUserInput("Invalid entry. Please enter a valid card number."));
+                return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid card number."));
             }
         }
 
@@ -60,7 +60,7 @@ namespace posTerminal
             }
             else
             {
-                return ValidateCardNumber(GetUserInput("Invalid entry. Please enter a valid CVV number."));
+                return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid CVV number."));
             }
         }
 
@@ -71,17 +71,5 @@ namespace posTerminal
             Console.WriteLine("Total: $0.00");
             return "Thank you for visiting JAR Quickie Eats!";
         }
-
-
-
-
-        private static string GetUserInput(string message)
-        {
-            Console.WriteLine(message);
-            string input = Console.ReadLine();
-            return input;
-        }
-
-
     }
 }

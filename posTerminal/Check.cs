@@ -22,7 +22,7 @@ namespace posTerminal
 
         //Methods
 
-            //validate check number is between 3 and 4 digits
+        //validate check number is between 3 and 4 digits
         public static string ValidateCheckNumber(string checkNumber)
         {
 
@@ -34,7 +34,7 @@ namespace posTerminal
             }
             else
             {
-                return ValidateCheckNumber(GetUserInput("Invalid entry. Please enter a valid check number."));
+                return ValidateCheckNumber(Methods.GetUserInput("Invalid entry. Please enter a valid check number."));
             }
         }
 
@@ -66,12 +66,7 @@ namespace posTerminal
             }
             return "Total: $0.00";
         }
-
-            private static string GetUserInput(string message)
-            {
-                Console.WriteLine(message);
-                string input = Console.ReadLine();
-                return input;
-            }
-        }
     }
+}
+
+    

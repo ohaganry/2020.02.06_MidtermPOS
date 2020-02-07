@@ -22,8 +22,12 @@ namespace posTerminal
 
         //Methods
 
-    public static string ValidateCheckNumber(string checkNumber)
+            //validate check number is between 3 and 4 digits
+        public static string ValidateCheckNumber(string checkNumber)
         {
+
+            Console.WriteLine("Please enter check number:");
+            checkNumber = Console.ReadLine();
             if (Regex.IsMatch(checkNumber, @"^\d{3,4}$"))
             {
                 return $"Thank you! Check number added.\n";
@@ -34,11 +38,40 @@ namespace posTerminal
             }
         }
 
-        private static string GetUserInput(string message)
+        //call this method user chooses to pay with CHECK. 
+        public static string CheckPayment(double amountTendered, double grandTotal)
         {
-            Console.WriteLine(message);
-           string input = Console.ReadLine();
-           return input;
+            Console.WriteLine("Please enter the check amount:");
+            bool checkAmountValid = false;
+            while (checkAmountValid)
+            {
+                if (amountTendered == grandTotal)
+                {
+                    checkAmountValid = true;
+
+                }
+                else if (amountTendered < grandTotal)
+                {
+                    Console.WriteLine("Not enough to cover the total.");
+                }
+                else if (amountTendered > grandTotal)
+                {
+                    Console.WriteLine("Your check is for too much money!");
+                    Console.WriteLine("You can try again, or we can keep the extra as a tip...");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid entry.");
+                }
+            }
+            return "Total: $0.00";
+        }
+
+            private static string GetUserInput(string message)
+            {
+                Console.WriteLine(message);
+                string input = Console.ReadLine();
+                return input;
+            }
         }
     }
-}

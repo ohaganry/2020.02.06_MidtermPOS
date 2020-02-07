@@ -19,7 +19,9 @@ namespace posTerminal
 
         }
 
-        //method
+        //methods
+
+            //take user's cash and give them change
         public static double CalcChange(double amountTendered , double grandTotal)
         {
             double change = grandTotal - amountTendered;
@@ -27,5 +29,10 @@ namespace posTerminal
         }
 
 
+        //Call this method when user wants to pay with CASH
+        public static double CashPayment(double amountTendered, double grandTotal)
+        {
+            return CalcChange(amountTendered, grandTotal);
+        }
     }
 }

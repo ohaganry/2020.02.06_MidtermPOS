@@ -25,6 +25,7 @@ namespace posTerminal
 
 
         //methods
+        //validate expiration date is in correct format
         public static string ValidateExpirationDate(string expirationDate)
         {
             if (Regex.IsMatch(expirationDate, @"^\d{15,16}$"))
@@ -37,6 +38,7 @@ namespace posTerminal
             }
         }
 
+        //validate card number is 15 or 16 digits
         public static string ValidateCardNumber(string cardNumber)
         {
             if (Regex.IsMatch(cardNumber, @"^\d{15,16}$"))
@@ -49,6 +51,7 @@ namespace posTerminal
             }
         }
 
+        //validate cvv number is 3 or 4 digitd
         public static string ValidateCVV(string cvv)
         {
             if (Regex.IsMatch(cvv, @"^\d{3,4}$"))
@@ -61,6 +64,13 @@ namespace posTerminal
             }
         }
 
+
+        //Call this method when user selects to pay with CARD
+        public static string CreditPayment(double grandTotal)
+        {
+            Console.WriteLine("Total: $0.00");
+            return "Thank you for visiting JAR Quickie Eats!";
+        }
 
 
 

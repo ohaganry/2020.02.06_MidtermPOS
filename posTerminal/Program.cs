@@ -101,13 +101,10 @@ namespace posTerminal
 
                 }
 
-<<<<<<< HEAD
 
-=======
                 open = Methods.ValidateInput("Would you like to make another order? (y/n)");
             }
             Console.WriteLine("Thank you, come again!");
->>>>>>> master
         }
     }
 }

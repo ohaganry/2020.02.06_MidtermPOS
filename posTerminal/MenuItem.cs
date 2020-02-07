@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Globalization;
 
 namespace posTerminal
 {
@@ -25,13 +26,13 @@ namespace posTerminal
         {
             List<MenuItem> menu = new List<MenuItem>();
 
-            StreamReader reader = new StreamReader("../../../Menu.txt");
+            StreamReader reader = new StreamReader("Menu.txt");//("../../../Menu.txt");
             string line = reader.ReadLine();
 
             while(line != null)
             {
                 string[] items = line.Split('|');
-                menu.Add(new MenuItem(items[0], items[1], double.Parse(items[2]), items[3]));
+                menu.Add(new MenuItem(items[0], items[1], double.Parse(items[2], NumberStyles.Currency), items[3]));
                 line = reader.ReadLine();
             }
             reader.Close();

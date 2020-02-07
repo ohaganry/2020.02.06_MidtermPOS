@@ -1,12 +1,12 @@
-Falafel|Meal|4.99|Deep-fried balls of ground chickpeas & fava beans, wrapped in fresh pita bread with lettuce, tomatos, pickles and tahini sauce
+Falafel         |Meal|4.99|Deep-fried balls of ground chickpeas & fava beans, wrapped in fresh pita bread with lettuce, tomatos, pickles and tahini sauce
 Chicken Shawarma|Meal|4.99|Marinated chicken wrapped in fresh pita bread with pickled veggies, tomatoes and garlic sauce
-Lamb Shawarma|Meal|4.99|Marinated lamb wrapped in fresh pita bread with pickled veggies, onions and hummus
-Hamburger|Meal|5.99|All-beef patty, special sauce, lettuce, pickles, onions on a sesame seed bun
-Chicken Nuggets|Meal|3.99|White-meat chicken deep-fried in batter (6 pc.)
-Beef Tacos|Meal|6.00|Seasoned ground-beef with lettuce, tomatoes, onions, & cheese wrapped in a flour tortilla (3 tacos)
-Spaghetti & Meatballs|Meal|8.00|Tradional Spaghetti and Itallian beef meatballs
-Pita & Hummus|Side|1.99|Fresh pita bread and hummus
-French Fries|Side|1.99|Wedge cut seasoned french fries
-Onion Rings|Side|2.50|Deep-fried beer-battered onion rings
-Chef's Salad|Side|2.99|Changes Daily
-Chips & Salsa|Side|1.99|House Tortilla chips and fresh salsa
+Lamb Shawarma   |Meal|4.99|Marinated lamb wrapped in fresh pita bread with pickled veggies, onions and hummus
+Hamburger       |Meal|5.99|All-beef patty, special sauce, lettuce, pickles, onions on a sesame seed bun
+Chicken Nuggets |Meal|3.99|White-meat chicken deep-fried in batter (6 pc.)
+Beef Tacos      |Meal|6.00|Seasoned ground-beef with lettuce, tomatoes, onions, & cheese wrapped in a flour tortilla (3 tacos)
+Mom's Spaghetti |Meal|8.00|Tradional Spaghetti and Itallian beef meatballs
+Pita & Hummus   |Side|1.99|Fresh pita bread and hummus
+French Fries    |Side|1.99|Wedge cut seasoned french fries
+Onion Rings    |Side|2.50|Deep-fried beer-battered onion rings
+Chef's Salad   |Side|2.99|Changes Daily
+Chips & Salsa  |Side|1.99|House Tortilla chips and fresh salsa

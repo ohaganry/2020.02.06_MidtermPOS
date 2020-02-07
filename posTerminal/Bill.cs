@@ -14,30 +14,39 @@ namespace posTerminal
 
         public Bill()
         {
-
-        }
-
-        public Bill (double subTotal, double grandTotal)
-        {
-            Subtotal = subTotal;
             Salestax = 0.06;
-            Grandtotal = grandTotal;
         }
 
+<<<<<<< HEAD
         public double CalcSubTotal(List<MenuItem> userCart)
+=======
+        //public Bill (double subTotal, double grandTotal)
+        //{
+        //    Subtotal = subTotal;
+        //    Salestax = 0.06;
+        //    Grandtotal = grandTotal;
+        //}
+
+        public void CalcSubTotal(List<MenuItem> userCart)
+>>>>>>> master
         {
             foreach (var c in userCart)
             {
                 Subtotal += c.Price;
+<<<<<<< HEAD
             }
             return Subtotal;
         }
 
         public double CalcTotal()
-        {
-            return Subtotal * (1 + Salestax);
+=======
+            }             
         }
 
-        
+        public void CalcTotal()
+>>>>>>> master
+        {
+            Grandtotal = Subtotal * (1 + Salestax);
+        }        
     }
 }

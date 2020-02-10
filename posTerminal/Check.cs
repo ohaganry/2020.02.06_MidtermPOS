@@ -25,9 +25,8 @@ namespace posTerminal
         //validate check number is between 3 and 4 digits
         public static string ValidateCheckNumber(string checkNumber)
         {
-
-            Console.WriteLine("Please enter check number:");
-            checkNumber = Console.ReadLine();
+            //Console.WriteLine("Please enter check number:");
+            //checkNumber = Console.ReadLine();
             if (Regex.IsMatch(checkNumber, @"^\d{3,4}$"))
             {
                 return $"Thank you! Check number added.\n";

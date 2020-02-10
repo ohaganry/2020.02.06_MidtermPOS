@@ -19,16 +19,17 @@ namespace posTerminal
 
         public void CalcSubTotal(List<MenuItem> userCart)
         {
+            Subtotal = 0;
             foreach (var c in userCart)
             {
                 Subtotal += c.Price;
 
-            }             
+            }
         }
 
         public void CalcTotal()
         {
             Grandtotal = Subtotal * (1 + Salestax);
-        }        
+        }
     }
 }

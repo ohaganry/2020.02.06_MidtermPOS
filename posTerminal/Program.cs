@@ -32,7 +32,7 @@ namespace posTerminal
                     //prompt customer for order number and store it as an int variable
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     int item = Methods.CheckRange("Which menu item would you like?", 1, menu.Count);
-                    Console.WriteLine($"{menu[item - 1].Name} - {menu[item - 1].Price}");
+                    Console.WriteLine($"{menu[item - 1].Name}  {menu[item - 1].Price}");
                     Console.WriteLine(menu[item - 1].Description);
 
                     //prompt customer for quantity

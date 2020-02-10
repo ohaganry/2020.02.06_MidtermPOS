@@ -14,6 +14,7 @@ namespace posTerminal
 
         public static bool ValidateInput(string message)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             string usertInput = GetUserInput(message).ToLower();
             if(usertInput == "y")
             {

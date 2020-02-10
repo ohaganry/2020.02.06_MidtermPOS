@@ -28,11 +28,5 @@ namespace posTerminal
 
         }
 
-
-        ////Call this method when user wants to pay with CASH
-        //public void CashPayment(double amountTendered, double grandTotal)
-        //{
-        //    CalcChange(amountTendered, grandTotal);
-        //}
     }
 }

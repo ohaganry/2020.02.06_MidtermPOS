@@ -74,12 +74,5 @@ namespace posTerminal
             }
         }
 
-
-        //Call this method when user selects to pay with CARD
-        /* public static string CreditPayment(double grandTotal)
-        {
-            Console.WriteLine("Total: $0.00");
-            return "Thank you for visiting JAR Quickie Eats!";
-        } */
     }
 }

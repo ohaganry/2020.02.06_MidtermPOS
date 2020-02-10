@@ -28,13 +28,15 @@ namespace posTerminal
         //validate expiration date is in correct format
         public static string ValidateExpirationDate(string expirationDate)
         {
-            if (Regex.IsMatch(expirationDate, @"^\d{2}/\d{2}$")) /*&& DateTime.Parse(expirationDate) > DateTime.Now)*/
+            var dt = DateTime.Parse(expirationDate);
+            DateTime expDate = new DateTime(dt.Year, dt.Month, DateTime.DaysInMonth(dt.Year, dt.Month));
+            if (Regex.IsMatch(expirationDate, @"^\d{2}/\d{4}$") && DateTime.Compare(DateTime.Now, expDate) <= 0)
             {
                 return $"Thank you. {expirationDate} is valid.\n";
             }
             else
             {
-                return ValidateExpirationDate(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yy)"));
+                return ValidateExpirationDate(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yyyy)"));
             }
         }
 

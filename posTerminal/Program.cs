@@ -112,26 +112,30 @@ namespace posTerminal
 
                     case 2:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Credit.ValidateCardNumber(Methods.GetUserInput("Enter card number:"));
+                        Credit.ValidateCardNumber(Methods.GetUserInput("Enter 15-16 digit card number:"));
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Credit.ValidateExpirationDate(Methods.GetUserInput("Enter expiration date:"));
+                        Credit.ValidateExpirationDate(Methods.GetUserInput("Enter expiration date (mm/yyyy):"));
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Credit.ValidateCVV(Methods.GetUserInput("Enter the CVV number:"));
+                        Credit.ValidateCVV(Methods.GetUserInput("Enter the 3-4 digit CVV number:"));
                         payType = "Credit";
                         break;
 
                     case 3:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Check.ValidateCheckNumber(Methods.GetUserInput("Enter check number:"));
+                        Check.ValidateCheckNumber(Methods.GetUserInput("Enter the 3-4 digit check number:"));
                         payType = "Check";
                         break;
                 }
 
                 //receipt
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\nReceipt");
+                Console.ResetColor();
                 foreach (MenuItem m in cart)
                 {
                     Console.WriteLine($"{m.Name} \t {m.Price}");
                 }
+                Console.WriteLine("");
                 Console.WriteLine($"Subtotal: {receipt.Subtotal:C2}");
                 Console.WriteLine($"Tax: {receipt.Subtotal * receipt.Salestax:C2}");
                 Console.WriteLine($"Total: {receipt.Grandtotal:C2}");

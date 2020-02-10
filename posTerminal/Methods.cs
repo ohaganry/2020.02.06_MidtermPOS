@@ -34,27 +34,22 @@ namespace posTerminal
 
         public static int CheckRange(string prompt, int rangeLower, int rangeUpper)
         {
-            int number;
+            int number = 0;
+            bool realnum = true;
             string input = GetUserInput(prompt);
-            if(int.TryParse(input, out number))
+            while(realnum)
             {
-                if(number >= rangeLower && number <= rangeUpper)
+                if(int.TryParse(input, out number) && number >= rangeLower && number <= rangeUpper)
                 {
-                    return number;
+                    realnum = false;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    input = GetUserInput($"Invalid Input. Input must be {rangeLower}-{rangeUpper}");
-                    return CheckRange(input, rangeLower, rangeUpper);
+                    input = Methods.GetUserInput($"Invalid Input. Input must be {rangeLower}-{rangeUpper}");
                 }
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                input = GetUserInput($"Invalid Input. Input must be {rangeLower}-{rangeUpper}");
-                return CheckRange(input, rangeLower, rangeUpper);
-            }
+            return number;
         }            
     }
 

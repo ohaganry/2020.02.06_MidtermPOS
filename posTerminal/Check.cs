@@ -33,6 +33,7 @@ namespace posTerminal
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 return ValidateCheckNumber(Methods.GetUserInput("Invalid entry. Please enter a valid check number."));
             }
         }
@@ -51,16 +52,22 @@ namespace posTerminal
                 }
                 else if (amountTendered < grandTotal)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Not enough to cover the total.");
+                    Console.ResetColor();
                 }
                 else if (amountTendered > grandTotal)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Your check is for too much money!");
                     Console.WriteLine("You can try again, or we can keep the extra as a tip...");
+                    Console.ResetColor();
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid entry.");
+                    Console.ResetColor();
                 }
             }
             return "Total: $0.00";

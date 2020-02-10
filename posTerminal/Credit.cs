@@ -28,7 +28,12 @@ namespace posTerminal
         //validate expiration date is in correct format
         public static string ValidateExpirationDate(string expirationDate)
         {
-            var dt = DateTime.Parse(expirationDate);
+            DateTime dt;
+            while(!DateTime.TryParse(expirationDate, out dt))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                expirationDate = Methods.GetUserInput("Invalid expiration date. Use format mm/yyyy");
+            }
             DateTime expDate = new DateTime(dt.Year, dt.Month, DateTime.DaysInMonth(dt.Year, dt.Month));
             if (Regex.IsMatch(expirationDate, @"^\d{2}/\d{4}$") && DateTime.Compare(DateTime.Now, expDate) <= 0)
             {
@@ -36,6 +41,7 @@ namespace posTerminal
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 return ValidateExpirationDate(Methods.GetUserInput("Invalid entry. Please enter a valid expiration date. (mm/yyyy)"));
             }
         }
@@ -49,6 +55,7 @@ namespace posTerminal
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 return ValidateCardNumber(Methods.GetUserInput("Invalid entry. Please enter a valid card number."));
             }
         }
@@ -62,16 +69,17 @@ namespace posTerminal
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 return ValidateCVV(Methods.GetUserInput("Invalid entry. Please enter a valid CVV number."));
             }
         }
 
 
         //Call this method when user selects to pay with CARD
-        public static string CreditPayment(double grandTotal)
+        /* public static string CreditPayment(double grandTotal)
         {
             Console.WriteLine("Total: $0.00");
             return "Thank you for visiting JAR Quickie Eats!";
-        }
+        } */
     }
 }

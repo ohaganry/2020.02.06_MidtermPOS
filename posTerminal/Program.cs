@@ -78,7 +78,7 @@ namespace posTerminal
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             string s = (Methods.GetUserInput("Cash Tendered:"));
 
-                            if (Regex.IsMatch(s, @"^((\d{3})|\d+)\.\d{2}$") || Regex.IsMatch(s, @"^(\d{1,3})$"))
+                            if (Regex.IsMatch(s, @"^((\d{9})|\d+)\.\d{2}$") || Regex.IsMatch(s, @"^(\d{1,9})$"))
                             {
                                 
                                 cash.AmountTendered = double.Parse(s);
